@@ -3,6 +3,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = (env) => {
   return {
@@ -15,7 +16,7 @@ module.exports = (env) => {
     module: {
       rules: [
         {
-          test: /.(js|jsx)$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
@@ -34,6 +35,12 @@ module.exports = (env) => {
         exclude: ["node_modules", "dist"],
         context: path.resolve(__dirname, "src"),
       }),
+      new CompressionPlugin({
+        algorithm: 'gzip',
+        test: /\.(js|css|html)$/,
+        threshold: 10240,
+        minRatio: 0.8,
+      }),
     ],
     devServer: {
       static: {
@@ -44,6 +51,11 @@ module.exports = (env) => {
       historyApiFallback: {
         index: "index.html",
       },
+    },
+    performance: {
+      hints: 'warning',
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000,
     },
   };
 };
