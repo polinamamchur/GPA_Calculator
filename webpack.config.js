@@ -5,10 +5,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env) => {
   return {
-    entry: "./src/index.js",
+    entry: {
+      main: "./src/index.js",
+    },
     mode: env.dev === true ? "development" : "production",
     output: {
-      filename: "main.js",
+      filename: "[name].bundle.js",
+      chunkFilename: "[name].chunk.js",
       path: path.resolve(__dirname, "dist"),
     },
     module: {
@@ -28,7 +31,7 @@ module.exports = (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: "public/index.html",
-        inject: false,
+        inject: true,
       }),
       new CleanWebpackPlugin(), 
       new ESLintPlugin({
@@ -36,15 +39,18 @@ module.exports = (env) => {
         context: path.resolve(__dirname, "src"),
       }),
     ],
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+      },
+    },
     devServer: {
       static: {
         directory: path.join(__dirname, "dist"),
       },
       compress: false,
       port: 3000,
-      historyApiFallback: {
-        index: "index.html",
-      },
+      historyApiFallback: true,
     },
     performance: {
       hints: 'warning',
