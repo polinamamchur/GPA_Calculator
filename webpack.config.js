@@ -1,9 +1,7 @@
-/* eslint-disable no-undef */
-
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
-const CompressionPlugin = require('compression-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env) => {
   return {
@@ -30,16 +28,12 @@ module.exports = (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: "public/index.html",
+        inject: false,
       }),
+      new CleanWebpackPlugin(), 
       new ESLintPlugin({
         exclude: ["node_modules", "dist"],
         context: path.resolve(__dirname, "src"),
-      }),
-      new CompressionPlugin({
-        algorithm: 'gzip',
-        test: /\.(js|css|html)$/,
-        threshold: 10240,
-        minRatio: 0.8,
       }),
     ],
     devServer: {

@@ -1,12 +1,13 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+import React from 'react'
+import { createRoot } from 'react-dom'
 
-const App = () => (
-  <div>
-    Hello, React!
-  </div>
-);
+const App = () => {
+  return (
+    <div>
+      <p>Hello from React !!!!</p>
+    </div>
+  )
+}
 
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
-root.render(<App />);
+const root = createRoot(document.getElementById('app'))
+root.render(<App />)
