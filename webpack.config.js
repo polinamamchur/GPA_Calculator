@@ -8,10 +8,9 @@ module.exports = (env) => {
     entry: {
       main: "./src/index.js",
     },
-    mode: env.dev === true ? "development" : "production",
+    mode: env && env.dev ? "development" : "production",
     output: {
-      filename: "[name].bundle.js",
-      chunkFilename: "[name].chunk.js",
+      filename: "[name].[contenthash].js", 
       path: path.resolve(__dirname, "dist"),
     },
     module: {
@@ -31,7 +30,7 @@ module.exports = (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: "public/index.html",
-        inject: true,
+        inject: 'body',
       }),
       new CleanWebpackPlugin(), 
       new ESLintPlugin({
