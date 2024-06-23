@@ -1,0 +1,20 @@
+name: test-reusable
+
+on:
+  workflow_call:
+
+    inputs:
+      some:
+        description: "Some input"
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - run: echo "I'm reusable flow called with ${{inputs.some}}"
