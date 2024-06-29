@@ -1,17 +1,17 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = (env) => {
   return {
     entry: {
-      main: "./src/index.js",
+      main: './src/index.js'
     },
-    mode: env && env.dev ? "development" : "production",
+    mode: env && env.dev ? 'development' : 'production',
     output: {
-      filename: "[name].[contenthash].js", 
-      path: path.resolve(__dirname, "dist"),
+      filename: '[name].[contenthash].js',
+      path: path.resolve(__dirname, 'dist')
     },
     module: {
       rules: [
@@ -19,42 +19,42 @@ module.exports = (env) => {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-              presets: ["@babel/preset-react", "@babel/preset-env"],
-            },
-          },
-        },
-      ],
+              presets: ['@babel/preset-react', '@babel/preset-env']
+            }
+          }
+        }
+      ]
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "public/index.html",
-        inject: 'body',
+        template: 'public/index.html',
+        inject: 'body'
       }),
-      new CleanWebpackPlugin(), 
+      new CleanWebpackPlugin(),
       new ESLintPlugin({
-        exclude: ["node_modules", "dist"],
-        context: path.resolve(__dirname, "src"),
-      }),
+        exclude: ['node_modules', 'dist'],
+        context: path.resolve(__dirname, 'src')
+      })
     ],
     optimization: {
       splitChunks: {
-        chunks: 'all',
-      },
+        chunks: 'all'
+      }
     },
     devServer: {
       static: {
-        directory: path.join(__dirname, "dist"),
+        directory: path.join(__dirname, 'dist')
       },
       compress: false,
       port: 3000,
-      historyApiFallback: true,
+      historyApiFallback: true
     },
     performance: {
       hints: 'warning',
       maxEntrypointSize: 512000,
-      maxAssetSize: 512000,
-    },
-  };
-};
+      maxAssetSize: 512000
+    }
+  }
+}

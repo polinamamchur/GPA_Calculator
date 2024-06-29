@@ -60,25 +60,5 @@ jobs:
           name: dist
           path: dist
 
-  publish:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
 
-    steps:
-      - name: Publish to GitHub Packages
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.x'
-          registry-url: 'https://npm.pkg.github.com'
-      - run: npm publish
-
-  sun-subflow:
-    runs-on: ubuntu-latest
-    needs: dependencies
-
-    steps:
-      - name: Run Subflow
-        uses: polinamamchur/GPA_Calculator/.github/workflows/reusable.yml@main
-        with:
-          some: 'some-parameter-here'
+  
