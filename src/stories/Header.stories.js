@@ -12,8 +12,8 @@ export default {
   },
   args: {
     onLogin: fn(),
-    onLogout: fn(),
-    onCreateAccount: fn()
+    onCreateAccount: fn(),
+    onSignUp: fn()
   }
 }
 
@@ -21,8 +21,15 @@ export const LoggedIn = {
   args: {
     user: {
       name: 'Jane Doe'
-    }
+    },
+    onLogin: fn(), // Add login action
+    onSignUp: fn() // Add sign up action
   }
 }
 
-export const LoggedOut = {}
+export const LoggedOut = {
+  args: {
+    onLogin: fn(), // Add login action
+    onSignUp: fn() // Add sign up action
+  }
+}

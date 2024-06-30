@@ -5,6 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .storybook-header svg {
@@ -19,6 +21,26 @@
   margin: 6px 0 6px 10px;
   display: inline-block;
   vertical-align: top;
+  color: #333;
+}
+
+.storybook-header button {
+  background-color: #4c5156;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.storybook-header button:hover {
+  background-color: #2b2e31;
 }
 
 .storybook-header button + button {
