@@ -1,0 +1,78 @@
+.subject-form {
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subject-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subject-inputs div {
+  display: flex;
+  flex-direction: column;
+}
+
+.subject-form label {
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.subject-form input {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.subject-form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subject-form button {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.subject-form button[type='button'] {
+  background-color: #e74c3c;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.subject-form button[type='button']:hover {
+  background-color: #c44133;
+}
+
+/* Media queries for larger screens */
+@media (min-width: 600px) {
+  .subject-inputs {
+    flex-direction: row;
+  }
+
+  .subject-inputs div {
+    flex: 1;
+  }
+
+  .subject-form-buttons {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .subject-form button {
+    width: auto;
+  }
+}
