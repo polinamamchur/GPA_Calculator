@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './SubjectForm.css';
-import { Button } from './Button'; 
+import { Button } from './Button';
 
 export const SubjectForm = ({ initialSubject, initialGrade, initialCredits, onSubmit, onDelete }) => {
   const [subject, setSubject] = useState(initialSubject);
@@ -55,8 +55,8 @@ export const SubjectForm = ({ initialSubject, initialGrade, initialCredits, onSu
         </div>
       </div>
       <div className="subject-form-buttons">
-        <Button type="submit" primary label="Add" />
-        <Button type="button" label="Delete" onClick={handleDelete} />
+        <Button type="submit" label="Add" primary />
+        <Button type="button" label="Remove" onClick={handleDelete} />
       </div>
     </form>
   );
@@ -75,3 +75,5 @@ SubjectForm.defaultProps = {
   initialGrade: '',
   initialCredits: 0,
 };
+
+export default SubjectForm;

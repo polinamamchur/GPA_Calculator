@@ -1,3 +1,4 @@
+/* File: src/stories/Login.css */
 .login-form {
   max-width: 300px;
   margin: 0 auto;
@@ -29,4 +30,38 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .login-form {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .login-form input {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .login-form .storybook-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 10px;
+  }
+
+  .login-form input {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .login-form .storybook-button {
+    font-size: 12px;
+    padding: 6px;
+  }
 }
