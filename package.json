@@ -7,7 +7,7 @@
     "start": "webpack serve --open",
     "dev": "webpack serve --env dev",
     "lint:fix": "eslint . --fix --color",
-    "lint": "eslint ./src/*",
+    "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}",
     "prettier": "prettier --write --ignore-unknown ./src/*",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
