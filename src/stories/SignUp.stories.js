@@ -1,4 +1,4 @@
-import SignUp from './SignUp'
+import SignUp from '../Components/SignUp/SignUp'
 import { action } from '@storybook/addon-actions'
 
 export default {

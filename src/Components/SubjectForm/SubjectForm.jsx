@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './SubjectForm.css';
-import { Button } from './Button';
+import { Button } from '../Button/Button';
 
 export const SubjectForm = ({ initialSubject, initialGrade, initialCredits, onSubmit, onDelete }) => {
   const [subject, setSubject] = useState(initialSubject);

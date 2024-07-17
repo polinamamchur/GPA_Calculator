@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { SubjectForm } from './SubjectForm'
+import { SubjectForm } from '../Components/SubjectForm/SubjectForm'
 
 export default {
   title: 'Example/SubjectForm',

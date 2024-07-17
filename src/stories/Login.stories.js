@@ -1,5 +1,5 @@
 import React from 'react'
-import Login from './Login'
+import Login from '../Components/Login/Login'
 import { action } from '@storybook/addon-actions'
 
 export default {
