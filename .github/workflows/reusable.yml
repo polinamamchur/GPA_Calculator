@@ -2,10 +2,9 @@ name: test-reusable
 
 on:
   workflow_call:
-
     inputs:
       some:
-        description: "Some input"
+        description: 'Some input'
         required: true
         type: string
 

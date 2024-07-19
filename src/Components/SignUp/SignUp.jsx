@@ -10,7 +10,7 @@ const SignUp = ({ onSignUp }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault()
     if (password !== confirmPassword) {
-      alert("Passwords do not match!")
+      alert('Passwords do not match!')
       return
     }
     console.log(`Signing up with username: ${username}, email: ${email}, and password: ${password}`)
@@ -32,12 +32,7 @@ const SignUp = ({ onSignUp }) => {
       </label>
       <label>
         Email:
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       </label>
       <label>
         Password:

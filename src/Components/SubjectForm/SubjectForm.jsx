@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './SubjectForm.css';
-import { Button } from '../Button/Button';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import './SubjectForm.css'
+import { Button } from '../Button/Button'
 
-export const SubjectForm = ({ initialSubject, initialGrade, initialCredits, onSubmit, onDelete }) => {
-  const [subject, setSubject] = useState(initialSubject);
-  const [grade, setGrade] = useState(initialGrade);
-  const [credits, setCredits] = useState(initialCredits);
+export const SubjectForm = ({
+  initialSubject,
+  initialGrade,
+  initialCredits,
+  onSubmit,
+  onDelete
+}) => {
+  const [subject, setSubject] = useState(initialSubject)
+  const [grade, setGrade] = useState(initialGrade)
+  const [credits, setCredits] = useState(initialCredits)
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit({ subject, grade, credits });
-    setSubject('');
-    setGrade('');
-    setCredits('');
-  };
+    e.preventDefault()
+    onSubmit({ subject, grade, credits })
+    setSubject('')
+    setGrade('')
+    setCredits('')
+  }
 
   const handleDelete = () => {
-    onDelete({ subject, grade, credits });
-    setSubject('');
-    setGrade('');
-    setCredits('');
-  };
+    onDelete({ subject, grade, credits })
+    setSubject('')
+    setGrade('')
+    setCredits('')
+  }
 
   return (
     <form className="subject-form" onSubmit={handleSubmit}>
@@ -37,12 +43,7 @@ export const SubjectForm = ({ initialSubject, initialGrade, initialCredits, onSu
         </div>
         <div>
           <label htmlFor="grade">Grade</label>
-          <input
-            type="text"
-            id="grade"
-            value={grade}
-            onChange={(e) => setGrade(e.target.value)}
-          />
+          <input type="text" id="grade" value={grade} onChange={(e) => setGrade(e.target.value)} />
         </div>
         <div>
           <label htmlFor="credits">Credits</label>
@@ -59,21 +60,21 @@ export const SubjectForm = ({ initialSubject, initialGrade, initialCredits, onSu
         <Button type="button" label="Remove" onClick={handleDelete} />
       </div>
     </form>
-  );
-};
+  )
+}
 
 SubjectForm.propTypes = {
   initialSubject: PropTypes.string,
   initialGrade: PropTypes.string,
   initialCredits: PropTypes.number,
   onSubmit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-};
+  onDelete: PropTypes.func.isRequired
+}
 
 SubjectForm.defaultProps = {
   initialSubject: '',
   initialGrade: '',
-  initialCredits: 0,
-};
+  initialCredits: 0
+}
 
-export default SubjectForm;
+export default SubjectForm
