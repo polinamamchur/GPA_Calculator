@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import './SignUp.css'
 
 const SignUp = ({ onSignUp }) => {
@@ -55,6 +56,10 @@ const SignUp = ({ onSignUp }) => {
       <button type="submit">Sign Up</button>
     </form>
   )
+}
+
+SignUp.propTypes = {
+  onSignUp: PropTypes.func.isRequired
 }
 
 export default SignUp

@@ -8,7 +8,7 @@
     "dev": "webpack serve --env dev",
     "lint:fix": "eslint . --fix --color",
     "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}",
-    "prettier": "prettier --write --ignore-unknown ./src/*",
+    "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx,css}'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install"
@@ -65,12 +65,12 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.css": [
-      "prettier --write"
-    ]
-  }
+  "*.{js,jsx,ts,tsx}": [
+    "prettier --write",
+    "eslint --fix"
+  ],
+  "*.css": [
+    "prettier --write"
+  ]
+}
 }
