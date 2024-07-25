@@ -1,15 +1,10 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client'
+import App from './App'
 
-const App = () => {
-  return (
-    <div>
-      <p>Hello from React !!!!</p>
-    </div>
-  )
-}
-
-const root = createRoot(document.getElementById('app'))
-root.render(<App />)
-
-// test pre-hook commit2
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
