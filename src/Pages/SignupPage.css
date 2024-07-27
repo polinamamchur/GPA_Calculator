@@ -1,0 +1,17 @@
+.signup-container {
+  margin-top: 40px;
+}
+
+.navigation {
+  margin-top: 20px;
+}
+
+.go-to-home {
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.go-to-home:hover {
+  text-decoration: underline;
+}

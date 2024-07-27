@@ -1,0 +1,47 @@
+.content {
+  padding: 20px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.button-wrapper {
+  margin-bottom: 40px;
+}
+
+.button-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* File: src/MainPage.css */
+.content h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Підключення шрифтів з Google Fonts (якщо не підключено) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.results {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.results h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.results p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.results strong {
+  font-weight: 700;
+}
