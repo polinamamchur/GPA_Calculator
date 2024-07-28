@@ -1,15 +1,13 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import userClient from './clients/user'
 
-const App = () => {
-  return (
-    <div>
-      <p>Hello from React !!!!</p>
-    </div>
-  )
-}
+userClient.init('https://logindb-a4df.restdb.io', '7d3ebc7e75ad59998d8cda1cbf02efc8a68e5', fetch)
 
-const root = createRoot(document.getElementById('app'))
-root.render(<App />)
-
-// test pre-hook commit2
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)

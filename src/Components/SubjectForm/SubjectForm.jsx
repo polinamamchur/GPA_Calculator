@@ -1,36 +1,36 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import './SubjectForm.css'
-import { Button } from '../Button/Button'
+import { Button } from '../Button/Button.jsx'
 
-export const SubjectForm = ({
+const SubjectForm = ({
   initialSubject,
   initialGrade,
   initialCredits,
-  onSubmit,
-  onDelete
+  onAdd,
+  onRemove,
+  isRemovable,
+  isInitial
 }) => {
   const [subject, setSubject] = useState(initialSubject)
   const [grade, setGrade] = useState(initialGrade)
   const [credits, setCredits] = useState(initialCredits)
 
-  const handleSubmit = (e) => {
+  const handleAdd = (e) => {
     e.preventDefault()
-    onSubmit({ subject, grade, credits })
+    onAdd({ subject, grade, credits })
     setSubject('')
     setGrade('')
     setCredits('')
   }
 
-  const handleDelete = () => {
-    onDelete({ subject, grade, credits })
-    setSubject('')
-    setGrade('')
-    setCredits('')
+  const handleRemove = (e) => {
+    e.preventDefault()
+    onRemove()
   }
 
   return (
-    <form className="subject-form" onSubmit={handleSubmit}>
+    <form className="subject-form">
       <div className="subject-inputs">
         <div>
           <label htmlFor="subject">Subject</label>
@@ -56,8 +56,10 @@ export const SubjectForm = ({
         </div>
       </div>
       <div className="subject-form-buttons">
-        <Button type="submit" label="Add" primary />
-        <Button type="button" label="Remove" onClick={handleDelete} />
+        {isInitial && <Button type="button" label="Add" primary onClick={handleAdd} />}
+        {isRemovable && !isInitial && (
+          <Button type="button" label="Remove" onClick={handleRemove} />
+        )}
       </div>
     </form>
   )
@@ -67,14 +69,18 @@ SubjectForm.propTypes = {
   initialSubject: PropTypes.string,
   initialGrade: PropTypes.string,
   initialCredits: PropTypes.number,
-  onSubmit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  isRemovable: PropTypes.bool,
+  isInitial: PropTypes.bool.isRequired
 }
 
 SubjectForm.defaultProps = {
   initialSubject: '',
   initialGrade: '',
-  initialCredits: 0
+  initialCredits: 0,
+  isRemovable: true,
+  isInitial: false
 }
 
 export default SubjectForm
