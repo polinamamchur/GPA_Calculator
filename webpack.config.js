@@ -59,9 +59,6 @@ module.exports = (env) => {
       hints: 'warning',
       maxEntrypointSize: 512000,
       maxAssetSize: 512000
-    },
-    transform: {
-      '^.+\\.[t|j]sx?$': 'babel-jest'
     }
   }
 }
