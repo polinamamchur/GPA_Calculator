@@ -9,16 +9,13 @@ function init(url, key, fetchAPI) {
 }
 
 async function auth(login, password) {
-  return searchUser({
-    login,
-    password
-  })
-}
-
-async function getUser(token) {
-  return searchUser({
-    token
-  })
+  try {
+    const user = await searchUser({ login, password })
+    return user
+  } catch (error) {
+    console.error('Error during authentication:', error)
+    throw error
+  }
 }
 
 async function searchUser(query) {
@@ -37,7 +34,7 @@ async function searchUser(query) {
     headers
   })
 
-  if (!res.ok || res.status !== 200) {
+  if (!res.ok) {
     throw new Error(`Error: ${res.statusText}`)
   }
 
@@ -51,6 +48,5 @@ async function searchUser(query) {
 
 export default {
   init,
-  auth,
-  getUser
+  auth
 }

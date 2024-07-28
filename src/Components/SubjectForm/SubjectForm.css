@@ -1,3 +1,5 @@
+/* SubjectForm.css */
+
 .subject-form {
   font-family: 'Arial', sans-serif;
   font-weight: 700;
@@ -28,9 +30,15 @@
 .subject-form input {
   font-size: 16px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: none; /* Remove the border */
+  border-bottom: 1px solid #ccc; /* Optional: Add a subtle bottom border */
   border-radius: 5px;
   width: 90%;
+  outline: none; /* Remove the default outline */
+}
+
+.subject-form input:focus {
+  border-bottom: 1px solid #007bff; /* Optional: Add a color for focus state */
 }
 
 .subject-form-buttons {
@@ -45,16 +53,6 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.subject-form button[type='button'] {
-  background-color: #e74c3c;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.subject-form button[type='button']:hover {
-  background-color: #c44133;
 }
 
 /* Media queries for larger screens */
