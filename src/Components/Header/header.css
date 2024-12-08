@@ -10,18 +10,11 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.storybook-header svg {
-  display: inline-block;
-  vertical-align: top;
-}
-
 .storybook-header h1 {
   font-weight: 700;
   font-size: 20px;
   line-height: 1;
   margin: 6px 0 6px 10px;
-  display: inline-block;
-  vertical-align: top;
   color: #333;
 }
 
